@@ -153,39 +153,26 @@
             }
         }
 
-        .print-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #667eea;
-            color: white;
+        .download-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
             border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
+            border-radius: 25px;
             font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
         }
 
-        .print-button:hover {
-            transform: scale(1.05);
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .container {
-                box-shadow: none;
-            }
-
-            .print-button {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -297,6 +284,11 @@
         </div>
     </div>
 
-    <button class="print-button" onclick="window.print()">🖨️ Print CV</button>
+    <script>
+        function downloadPDF() {
+            window.print();
+        }
+    </script>
+
 </body>
 </html>
