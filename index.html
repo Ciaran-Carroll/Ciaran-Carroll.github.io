@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciaran Carroll - Software Engineer</title>
     <style>
+        /* ==========================================================
+           Reset & base
+           ========================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+ 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -19,20 +21,34 @@
             background: #f7fafc;
             min-height: 100vh;
         }
-
+ 
         .container {
             max-width: 1100px;
             margin: 0 auto;
             background: white;
             min-height: 100vh;
         }
-
+ 
+        /* ==========================================================
+           Header
+           ========================================================== */
         .header {
             background: white;
             padding: 60px 60px 40px;
             border-bottom: 1px solid #e2e8f0;
         }
-
+ 
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+ 
+        .header-content {
+            flex: 1;
+        }
+ 
         .header h1 {
             font-size: 3em;
             margin-bottom: 8px;
@@ -40,21 +56,21 @@
             color: #1a202c;
             letter-spacing: -0.02em;
         }
-
+ 
         .header .title {
             font-size: 1.25em;
             color: #4a5568;
             margin-bottom: 30px;
             font-weight: 400;
         }
-
+ 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             gap: 24px;
             margin-top: 20px;
         }
-
+ 
         .contact-info a {
             color: #2d3748;
             text-decoration: none;
@@ -64,83 +80,148 @@
             align-items: center;
             gap: 6px;
         }
-
+ 
         .contact-info a:hover {
             color: #2b6cb0;
         }
-
+ 
         .contact-info svg {
             width: 18px;
             height: 18px;
         }
-
+ 
+        /* ==========================================================
+           Content & section headings
+           ========================================================== */
         .content {
             padding: 60px;
         }
-
+ 
         .section {
             margin-bottom: 50px;
         }
-
+ 
         .section h2 {
-            color: #1a202c;
-            font-size: 1.5em;
+            font-size: 0.875em;
+            color: #4a5568;
             margin-bottom: 24px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            font-size: 0.875em;
-            color: #4a5568;
         }
-
+ 
+        /* ==========================================================
+           About section (two-column layout)
+           ========================================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+ 
+        .about-main p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+ 
+        .about-main p:last-child {
+            margin-bottom: 0;
+        }
+ 
+        .about-lead {
+            font-size: 1.1em;
+            color: #1a202c;
+            font-weight: 500;
+        }
+ 
+        .about-sidebar {
+            border-left: 2px solid #e2e8f0;
+            padding-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+ 
+        .fact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+ 
+        .fact-label {
+            font-size: 0.8em;
+            color: #718096;
+            font-weight: 500;
+        }
+ 
+        .fact-value {
+            font-size: 0.95em;
+            color: #2d3748;
+        }
+ 
+        .fact-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+ 
+        .fact-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #38a169;
+        }
+ 
+        /* ==========================================================
+           Experience, Education, Projects (shared card pattern)
+           ========================================================== */
         .job, .education-item, .project {
             margin-bottom: 32px;
             padding-bottom: 32px;
             border-bottom: 1px solid #f7fafc;
         }
-
+ 
         .job:last-child, .education-item:last-child, .project:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
-
+ 
         .job h3, .education-item h3, .project h3 {
             color: #1a202c;
             font-size: 1.25em;
             margin-bottom: 6px;
             font-weight: 600;
         }
-
+ 
         .job .meta, .education-item .meta {
             color: #718096;
             margin-bottom: 12px;
             font-size: 0.95em;
         }
-
+ 
         .job ul, .project ul {
             margin-left: 20px;
             margin-top: 12px;
             color: #4a5568;
         }
-
+ 
         .job li, .project li {
             margin-bottom: 8px;
             line-height: 1.7;
         }
-
-        .about-text {
-            color: #4a5568;
-            font-size: 1.05em;
-            line-height: 1.8;
-            max-width: 900px;
-        }
-
+ 
+        /* ==========================================================
+           Skills
+           ========================================================== */
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
-
+ 
         .skill-tag {
             background: #edf2f7;
             color: #2d3748;
@@ -151,12 +232,15 @@
             transition: all 0.2s;
             border: 1px solid #e2e8f0;
         }
-
+ 
         .skill-tag:hover {
             background: #e2e8f0;
             border-color: #cbd5e0;
         }
-
+ 
+        /* ==========================================================
+           Download button
+           ========================================================== */
         .download-btn {
             display: inline-block;
             padding: 10px 24px;
@@ -171,64 +255,74 @@
             text-decoration: none;
             margin-left: auto;
         }
-
+ 
         .download-btn:hover {
             background: #2c5282;
         }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .header-content {
-            flex: 1;
-        }
-
+ 
+        /* ==========================================================
+           Responsive
+           ========================================================== */
         @media (max-width: 768px) {
             .header {
                 padding: 40px 30px;
             }
-
+ 
             .content {
                 padding: 40px 30px;
             }
-
+ 
             .header h1 {
                 font-size: 2.2em;
             }
-
+ 
             .header-top {
                 flex-direction: column;
             }
-
+ 
             .download-btn {
                 margin-top: 20px;
                 margin-left: 0;
             }
-
+ 
             .contact-info {
                 flex-direction: column;
                 gap: 12px;
             }
+ 
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+ 
+            .about-sidebar {
+                border-left: none;
+                border-top: 2px solid #e2e8f0;
+                padding-left: 0;
+                padding-top: 1.5rem;
+            }
         }
-
+ 
+        /* ==========================================================
+           Print
+           ========================================================== */
         @media print {
             body {
                 background: white;
             }
-            
+ 
             .download-btn {
                 display: none;
             }
-            
+ 
             .container {
                 box-shadow: none;
             }
+ 
+            .about-grid {
+                grid-template-columns: 2fr 1fr;
+            }
         }
-
     </style>
 </head>
 <body>
@@ -237,7 +331,7 @@
             <div class="header-top">
                 <div class="header-content">
                     <h1>Ciaran Carroll</h1>
-                    <div class="title">Electronic & Computer Engineering Graduate | AI Engineer</div>
+                    <div class="title">Electronic &amp; Computer Engineering Graduate | AI Engineer</div>
                 </div>
             </div>
             <div class="contact-info">
@@ -267,18 +361,40 @@
                 </a>
             </div>
         </header>
-
+ 
         <div class="content">
             <section class="section">
                 <h2>About</h2>
-                <p class="about-text">I'm an Electronic & Computer Engineering graduate from the University of Limerick, based in Killarney and looking for engineering roles in the South West. My background spans hardware diagnostics from a co-op at Dell EMC, a final-year project in computer vision (a Python/OpenCV pipeline on Raspberry Pi for melanoma lesion analysis), and ongoing self-directed work in machine learning and applied systems.</p>
-                <p>Since graduating, I've kept building — deepening my Python and ML foundations through projects in computer vision, time-series analysis, and classical ML, while exploring areas like GPU programming and cloud infrastructure. I'm drawn to problems that sit close to the hardware–software boundary, and I'm equally comfortable debugging a failing board as I am training a model.</p>
-                <p>This portfolio collects the projects that best reflect where my skills are now and where I'm taking them next.</p>
+                <div class="about-grid">
+                    <div class="about-main">
+                        <p class="about-lead">I'm an Electronic &amp; Computer Engineering graduate from the University of Limerick, based in Killarney and looking for engineering roles in the South West.</p>
+                        <p>My background spans hardware diagnostics from a co-op at Dell EMC, a final-year project in computer vision (a Python/OpenCV pipeline on Raspberry Pi for melanoma lesion analysis), and ongoing self-directed work in machine learning and applied systems.</p>
+                        <p>Since graduating, I've kept building — deepening my Python and ML foundations through projects in computer vision, time-series analysis, and classical ML, while exploring areas like GPU programming and cloud infrastructure. I'm drawn to problems that sit close to the hardware–software boundary, and I'm equally comfortable debugging a failing board as I am training a model.</p>
+                    </div>
+                    <aside class="about-sidebar">
+                        <div class="fact">
+                            <span class="fact-label">Location</span>
+                            <span class="fact-value">Killarney, Co. Kerry</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Status</span>
+                            <span class="fact-value fact-status">Open to work</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Focus</span>
+                            <span class="fact-value">Python · ML · Computer vision</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Currently exploring</span>
+                            <span class="fact-value">GPU programming, AWS</span>
+                        </div>
+                    </aside>
+                </div>
             </section>
-
+ 
             <section class="section">
                 <h2>Experience</h2>
-
+ 
                 <div class="job">
                     <h3>Board Test Engineer</h3>
                     <div class="meta">Dell EMC, Ireland • May 2015 - January 2016 • Co-Op Programme</div>
@@ -289,7 +405,7 @@
                         <li>Strengthened analytical, troubleshooting, and reporting abilities in a professional engineering environment</li>
                     </ul>
                 </div>
-
+ 
                 <div class="job">
                     <h3>Bar Staff</h3>
                     <div class="meta">The Towers Hotel, Killarney, Co. Kerry • August 2018 - Present</div>
@@ -298,7 +414,7 @@
                         <li>Improved teamwork, communication, and ability to manage multiple priorities under pressure</li>
                     </ul>
                 </div>
-
+ 
                 <div class="job">
                     <h3>Bar Staff</h3>
                     <div class="meta">Brehon Hotel, Killarney, Co. Kerry • May 2016 - January 2018</div>
@@ -308,17 +424,17 @@
                     </ul>
                 </div>
             </section>
-
+ 
             <section class="section">
                 <h2>Education</h2>
-
+ 
                 <div class="education-item">
-                    <h3>Bachelor of Engineering in Electronic & Computer Engineering</h3>
+                    <h3>Bachelor of Engineering in Electronic &amp; Computer Engineering</h3>
                     <div class="meta">University of Limerick • 2015 - 2019</div>
                     <p style="color: #4a5568; margin-top: 8px;"><strong>Final Year Project:</strong> Developed a computer-vision system using Python and OpenCV to analyse melanoma progression. Implemented image preprocessing, detection algorithms, and automated classification pipelines.</p>
                 </div>
             </section>
-
+ 
             <section class="section">
                 <h2>Technical Skills</h2>
                 <div class="skills">
@@ -332,10 +448,10 @@
                     <span class="skill-tag">Machine Learning</span>
                 </div>
             </section>
-
+ 
             <section class="section">
                 <h2>Projects</h2>
-
+ 
                 <div class="project">
                     <h3>Melanoma Progression Analysis System</h3>
                     <ul>
@@ -344,7 +460,7 @@
                         <li>Technologies: Python, OpenCV, TensorFlow, Image Processing</li>
                     </ul>
                 </div>
-
+ 
                 <div class="project">
                     <h3>Cryptocurrency Price Prediction</h3>
                     <ul>
@@ -352,7 +468,7 @@
                         <li>Technologies: Python, Scikit-Learn, Data Analysis</li>
                     </ul>
                 </div>
-
+ 
                 <div class="project">
                     <h3>Stock Market Forecasting</h3>
                     <ul>
@@ -363,6 +479,5 @@
             </section>
         </div>
     </div>
-
 </body>
 </html>
