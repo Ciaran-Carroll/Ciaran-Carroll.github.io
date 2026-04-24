@@ -1,0 +1,66 @@
+.about-section {
+  background: #f7f7f5;
+  padding: 2.5rem;
+  border-radius: 12px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-main p {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+}
+
+.about-lead {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.about-sidebar {
+  border-left: 2px solid #e5e5e5;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fact { display: flex; flex-direction: column; gap: 0.25rem; }
+
+.fact-label {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.fact-value { font-size: 0.95rem; color: #222; }
+
+.fact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.fact-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+@media (max-width: 720px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-sidebar {
+    border-left: none;
+    border-top: 2px solid #e5e5e5;
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+}
